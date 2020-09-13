@@ -39,6 +39,6 @@ jobs:
         if: github.ref == 'refs/heads/master' && job.status == 'success'
         run: heroku container:login
       - name: Build and push
-        run: heroku container:push -a $HEROKU_APP_NAME web
+        run: heroku container:push web --app $HEROKU_APP_NAME
       - name: Release
-        run: heroku container:release -a $HEROKU_APP_NAME web
+        run: heroku container:release web --app $HEROKU_APP_NAME web
